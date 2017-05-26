@@ -40,12 +40,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <ExecutablePath>C:\Program Files %28x86%29\Objectivity\12.4\bin;$(ExecutablePath)</ExecutablePath>
-    <IncludePath>C:\dev\emerson\mt_test\ddlfiles;C:\Program Files %28x86%29\Objectivity\12.4\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)ddlfiles;C:\Program Files %28x86%29\Objectivity\12.4\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Program Files %28x86%29\Objectivity\12.4\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\dev\emerson\mt_test\ddlfiles;C:\Program Files %28x86%29\Objectivity\12.4\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)ddlfiles;C:\Program Files %28x86%29\Objectivity\12.4\include;$(IncludePath)</IncludePath>
     <LibraryPath>c:\Program Files (x86)\Objectivity\12.4\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
