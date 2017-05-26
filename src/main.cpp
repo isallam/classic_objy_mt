@@ -10,7 +10,7 @@
 const int THREAD_COUNT = 2;
 const char *DBNAME="Folder";
 const char *OBJNAME="Element";
-const char* fdfilename = "/dev/emerson/mt_test/data/testfd.boot";
+const char* fdfilename = "data/testfd.boot";
 
 char time1[10];
 
@@ -126,7 +126,7 @@ ooBoolean tran_func(const char *comment)
     std::cout <<"failed to create container" <<std::endl;
   }
   objH = new(contH) TestObject("Just a name ");
-  //dbsSiteH = new(contH) DbsSite();
+  dbsSiteH = new(contH) DbsSite();
 
   //	char* a = new char[20];
   //	ltoa(GetCurrentThreadId(),a,10);
