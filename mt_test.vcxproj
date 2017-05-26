@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C8A43C03-285E-4656-8F5A-26404256536D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>mt_test</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <ExecutablePath>C:\Program Files %28x86%29\Objectivity\12.4\bin;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>C:\dev\emerson\mt_test\ddlfiles;C:\Program Files %28x86%29\Objectivity\12.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Objectivity\12.4\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\dev\emerson\mt_test\ddlfiles;C:\Program Files %28x86%29\Objectivity\12.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>c:\Program Files (x86)\Objectivity\12.4\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="ddlfiles\DbfEditableObject_ddl.cpp" />
+    <ClCompile Include="ddlfiles\DbfNamedObject_ddl.cpp" />
+    <ClCompile Include="ddlfiles\DbfObject_ddl.cpp" />
+    <ClCompile Include="ddlfiles\DbsSite_ddl.cpp" />
+    <ClCompile Include="ddlfiles\object_ddl.cpp" />
+    <ClCompile Include="src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="ddlfiles\object.ddl">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cd \%(Directory)
+ooddlx %(Filename).ddl $(ProjectDir)data\testfd.boot</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">\%(Directory)%(Filename)_ddl.cpp;\%(Directory)%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cd \%(Directory)
+ooddlx %(Filename).ddl $(ProjectDir)data\testfd.boot</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">\%(Directory)%(Filename)_ddl.cpp;\%(Directory)%(Filename).h;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="ddlfiles\DbfEditableObject.ddl">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cd \%(Directory)
+ooddlx %(Filename).ddl $(ProjectDir)data\testfd.boot</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cd \%(Directory)
+ooddlx %(Filename).ddl $(ProjectDir)data\testfd.boot</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">\%(Directory)%(Filename)_ddl.cpp;\%(Directory)%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">\%(Directory)%(Filename)_ddl.cpp;\%(Directory)%(Filename).h;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">\$(Directory)DbfNamedObject.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">\$(Directory)DbfNamedObject.h;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="ddlfiles\DbfNamedObject.ddl">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cd \%(Directory)
+ooddlx %(Filename).ddl $(ProjectDir)data\testfd.boot</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cd \%(Directory)
+ooddlx %(Filename).ddl $(ProjectDir)data\testfd.boot</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">\%(Directory)%(Filename)_ddl.cpp;\%(Directory)%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">\%(Directory)%(Filename)_ddl.cpp;\%(Directory)%(Filename).h;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">\$(Directory)DbfObject.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">\$(Directory)DbfObject.h;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="ddlfiles\DbfObject.ddl">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cd \%(Directory)
+ooddlx %(Filename).ddl $(ProjectDir)data\testfd.boot</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cd \%(Directory)
+ooddlx %(Filename).ddl $(ProjectDir)data\testfd.boot</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">\%(Directory)%(Filename)_ddl.cpp;\%(Directory)%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">\%(Directory)%(Filename)_ddl.cpp;\%(Directory)%(Filename).h;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="ddlfiles\DbsSite.ddl">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cd \%(Directory)
+ooddlx %(Filename).ddl $(ProjectDir)data\testfd.boot</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cd \%(Directory)
+ooddlx %(Filename).ddl $(ProjectDir)data\testfd.boot</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">\%(Directory)%(Filename)_ddl.cpp;\%(Directory)%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">\%(Directory)%(Filename)_ddl.cpp;\%(Directory)%(Filename).h;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">\$(Directory)DbfEditableObject.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">\$(Directory)DbfEditableObject.h;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
