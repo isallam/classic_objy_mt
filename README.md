@@ -1,5 +1,6 @@
 # classic_objy_mt
 Multi-threaded test for Classic Objectivity/DB C++ APIs
+
 This test will create 2 threads and create two types of objects in own container in each thread. The variable *THREAD_COUNT* in src/main.cpp control the number of threads created.
 
 # Build the test
@@ -14,5 +15,5 @@ This test will create 2 threads and create two types of objects in own container
         * DbsSite.ddl
 
 # Run the test
-You can runt he test from the main project directory using either *debug/mt_test.exe* or *release/mt_test.exe*. It assume that the FD boot file is data/testfd.boot, otherwise you need to edit src/main.cpp to point to the correct file path.
+You can runt he test from the main project directory using either *debug/mt_test.exe* or *release/mt_test.exe*. It assumes that the FD boot file is data/testfd.boot, otherwise you need to edit src/main.cpp to point to the correct file path.
 
